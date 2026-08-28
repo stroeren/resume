@@ -5,6 +5,7 @@
     github: 'https://github.com/stroeren',
     linkedin: 'https://www.linkedin.com/in/stroeren/',
     devpost: 'https://devpost.com/stroeren',
+    email: 'mailto:stroeren@gmail.com',
   };
   const MAX_LOG_LINES = 14;
 
@@ -76,7 +77,7 @@
     const out = text => pushLog([prompt, text]);
 
     if (cmd === 'help') {
-      return out("available:  ls · cd [work|projects|about|~] · whoami · cat about.txt · resume · github · linkedin · devpost · clear");
+      return out("available:  ls · cd [work|projects|about|~] · whoami · cat about.txt · resume · github · linkedin · devpost · email · clear");
     }
     if (cmd === 'ls' || cmd === 'ls -la') {
       return out("work/    projects/    about/    resume.pdf    skills/");
@@ -89,7 +90,7 @@
       return renderLog();
     }
     if (cmd === 'cat about.txt') {
-      return out("backend + frontend, tests that catch things, containers that behave, scanners that stop bad code. currently junior year.");
+      return out("backend + frontend, tests that catch things, containers that behave, scanners that stop bad code. currently senior year, graduating may 2027.");
     }
     if (cmd === 'sudo' || cmd.startsWith('sudo ')) {
       return out("nice try.");
@@ -107,6 +108,11 @@
     if (cmd === 'linkedin') {
       out('→ linkedin.com/in/stroeren');
       window.open(LINKS.linkedin, '_blank');
+      return;
+    }
+    if (cmd === 'email') {
+      out('→ stroeren@gmail.com');
+      window.location.href = LINKS.email;
       return;
     }
     if (cmd === 'devpost') {
